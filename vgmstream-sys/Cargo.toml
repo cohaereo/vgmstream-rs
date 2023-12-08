@@ -1,0 +1,10 @@
+[package]
+name = "vgmstream-sys"
+authors = ["cohaereo <cohaereo@protonmail.com>"]
+version = "0.1.0"
+edition = "2021"
+
+[build-dependencies]
+bindgen = "*"
+cmake = "0.1.50"
+vcpkg = "0.2"

@@ -1,0 +1,12 @@
+[package]
+name = "vgmstream"
+version = "0.1.0"
+edition = "2021"
+authors = ["cohaereo <cohaereo@protonmail.com>"]
+
+[dependencies]
+anyhow = "1.0.75"
+vgmstream-sys = { path = "./vgmstream-sys" }
+
+[dev-dependencies]
+wav = "1.0.0"
