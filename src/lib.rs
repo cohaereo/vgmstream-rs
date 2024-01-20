@@ -8,7 +8,7 @@ pub mod enums;
 pub mod info;
 pub mod reader;
 
-pub fn read_file_to_samples_no_questions_asked(
+pub fn read_file_to_samples(
     data: &[u8],
     filename: Option<String>,
 ) -> anyhow::Result<(Vec<i16>, VgmstreamInfo)> {
@@ -42,6 +42,8 @@ pub fn read_file_to_samples_no_questions_asked(
 
             final_buffer.extend(&sample_buffer);
         }
+
+        vgmstream_sys::close_vgmstream(vg);
 
         Ok((final_buffer, desc.into()))
     }
