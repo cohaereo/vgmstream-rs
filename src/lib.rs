@@ -48,3 +48,23 @@ pub fn read_file_to_samples(
         Ok((final_buffer, desc.into()))
     }
 }
+
+pub fn read_file_info(data: &[u8], filename: Option<String>) -> anyhow::Result<VgmstreamInfo> {
+    unsafe {
+        vgmstream_set_log_stdout(100);
+        let mut fs = MemoryStream::from_slice(data, filename);
+
+        let vg = vgmstream_sys::init_vgmstream_from_STREAMFILE(fs.as_streamfile());
+
+        if vg.is_null() {
+            anyhow::bail!("Failed to init vgmstream");
+        }
+
+        let mut desc = zeroed();
+        vgmstream_sys::describe_vgmstream_info(vg, &mut desc);
+
+        vgmstream_sys::close_vgmstream(vg);
+
+        Ok(desc.into())
+    }
+}
