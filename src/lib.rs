@@ -38,9 +38,10 @@ pub fn read_file_to_samples(
                 32767
             };
 
-            vgmstream_sys::render_vgmstream(sample_buffer.as_mut_ptr(), to_get as i32, vg);
+            let samples_done =
+                vgmstream_sys::render_vgmstream(sample_buffer.as_mut_ptr(), to_get as i32, vg);
 
-            final_buffer.extend(&sample_buffer);
+            final_buffer.extend(&sample_buffer[..samples_done as usize * desc.channels as usize]);
         }
 
         vgmstream_sys::close_vgmstream(vg);

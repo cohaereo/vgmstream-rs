@@ -16,7 +16,7 @@ checksum = "b9b1a3d5f46d53f4a3478e2be4a5a5ce5108ea58b100dcd139830eae7f79a3a1"
 
 [[package]]
 name = "vgmstream"
-version = "0.1.2"
+version = "0.1.3"
 dependencies = [
  "anyhow",
  "vgmstream-sys",

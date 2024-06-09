@@ -4,11 +4,9 @@ use std::fs::File;
 fn main() {
     let data = std::fs::read(args().nth(1).unwrap()).unwrap();
 
-    let (samples, desc) = vgmstream::read_file_to_samples_no_questions_asked(
-        &data,
-        Some(args().nth(1).unwrap().to_string()),
-    )
-    .expect("Failed to render file");
+    let (samples, desc) =
+        vgmstream::read_file_to_samples(&data, Some(args().nth(1).unwrap().to_string()))
+            .expect("Failed to render file");
 
     println!("{desc:#?}");
 
