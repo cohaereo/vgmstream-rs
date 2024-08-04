@@ -7671,115 +7671,71 @@ fn bindgen_test_layout_vgmstream_info() {
 }
 extern "C" {
     pub fn init_vgmstream(filename: *const ::std::os::raw::c_char) -> *mut VGMSTREAM;
-}
-extern "C" {
     pub fn init_vgmstream_from_STREAMFILE(sf: *mut STREAMFILE) -> *mut VGMSTREAM;
-}
-extern "C" {
     pub fn reset_vgmstream(vgmstream: *mut VGMSTREAM);
-}
-extern "C" {
     pub fn close_vgmstream(vgmstream: *mut VGMSTREAM);
-}
-extern "C" {
     pub fn get_vgmstream_play_samples(
         looptimes: f64,
         fadeseconds: f64,
         fadedelayseconds: f64,
         vgmstream: *mut VGMSTREAM,
     ) -> i32;
-}
-extern "C" {
     pub fn render_vgmstream(
         buffer: *mut sample_t,
         sample_count: i32,
         vgmstream: *mut VGMSTREAM,
     ) -> ::std::os::raw::c_int;
-}
-extern "C" {
     pub fn seek_vgmstream(vgmstream: *mut VGMSTREAM, seek_sample: i32);
-}
-extern "C" {
     pub fn describe_vgmstream(
         vgmstream: *mut VGMSTREAM,
         desc: *mut ::std::os::raw::c_char,
         length: ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn describe_vgmstream_info(vgmstream: *mut VGMSTREAM, desc: *mut vgmstream_info);
-}
-extern "C" {
     pub fn get_vgmstream_average_bitrate(vgmstream: *mut VGMSTREAM) -> ::std::os::raw::c_int;
-}
-extern "C" {
     pub fn vgmstream_get_formats(size: *mut usize) -> *mut *const ::std::os::raw::c_char;
-}
-extern "C" {
     pub fn vgmstream_get_common_formats(size: *mut usize) -> *mut *const ::std::os::raw::c_char;
-}
-extern "C" {
     pub fn vgmstream_force_loop(
         vgmstream: *mut VGMSTREAM,
         loop_flag: ::std::os::raw::c_int,
         loop_start_sample: ::std::os::raw::c_int,
         loop_end_sample: ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn vgmstream_set_loop_target(vgmstream: *mut VGMSTREAM, loop_target: ::std::os::raw::c_int);
-}
-extern "C" {
     pub fn vgmstream_is_virtual_filename(
         filename: *const ::std::os::raw::c_char,
     ) -> ::std::os::raw::c_int;
-}
-extern "C" {
     pub fn allocate_vgmstream(
         channel_count: ::std::os::raw::c_int,
         looped: ::std::os::raw::c_int,
     ) -> *mut VGMSTREAM;
-}
-extern "C" {
     pub fn setup_vgmstream(vgmstream: *mut VGMSTREAM);
-}
-extern "C" {
     pub fn vgmstream_open_stream(
         vgmstream: *mut VGMSTREAM,
         sf: *mut STREAMFILE,
         start_offset: off_t,
     ) -> ::std::os::raw::c_int;
-}
-extern "C" {
     pub fn vgmstream_open_stream_bf(
         vgmstream: *mut VGMSTREAM,
         sf: *mut STREAMFILE,
         start_offset: off_t,
         force_multibuffer: ::std::os::raw::c_int,
     ) -> ::std::os::raw::c_int;
-}
-extern "C" {
     pub fn get_vgmstream_coding_description(
         vgmstream: *mut VGMSTREAM,
         out: *mut ::std::os::raw::c_char,
         out_size: usize,
     );
-}
-extern "C" {
     pub fn get_vgmstream_layout_description(
         vgmstream: *mut VGMSTREAM,
         out: *mut ::std::os::raw::c_char,
         out_size: usize,
     );
-}
-extern "C" {
     pub fn get_vgmstream_meta_description(
         vgmstream: *mut VGMSTREAM,
         out: *mut ::std::os::raw::c_char,
         out_size: usize,
     );
-}
-extern "C" {
     pub fn setup_state_vgmstream(vgmstream: *mut VGMSTREAM);
 }
 #[repr(C)]
